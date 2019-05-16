@@ -8,17 +8,17 @@
   <%= f.text_field :name %>
   <br />
   <%= f.label :sex %>
-  <%= f.radio_button :sex, :male, {} %><%= f.label :male %>
-  <%= f.radio_button :sex, :female, {} %><%= f.label :female %>
+  <%= f.radio_button :sex, :male, {} %><%= f.label :male, t('user.male') %>
+  <%= f.radio_button :sex, :female, {} %><%= f.label :female, t('user.female') %>
   <br />
   <%= f.label :age %>
   <%= f.text_field :age %>
   <br />
   <%= f.label :birth %>
-  <%= f.select :birth, User.births.keys.to_a, {} %>
+  <%= f.select :birth, User.births.to_a.map { |k, v| [t("enums.user.birth.#{k}"), k]} %>
   <br />
   <%= f.label :status %>
-  <%= f.select :status, User.statuses.keys.to_a, {} %>
+  <%= f.select :status, User.statuses.to_a.map { |k, v| [t("enums.user.status.#{k}"), k]} %>
   <br />
   <%= f.submit %>
 <% end %>

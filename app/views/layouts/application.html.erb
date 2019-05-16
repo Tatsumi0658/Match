@@ -11,5 +11,7 @@
 
   <body>
     <%= yield %>
+    <br />
+    <%= link_to t('view.new'), new_user_path %> / <%= link_to "HOME", users_path %>
   </body>
 </html>
