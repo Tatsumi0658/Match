@@ -1,0 +1,24 @@
+<%= form_with(model:@user, local:true) do |f| %>
+  <% if @user.errors.any? %>
+    <% @user.errors.full_messages.each do |msg| %>
+      <%= msg %><br />
+    <% end %>
+  <% end %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+  <br />
+  <%= f.label :sex %>
+  <%= f.radio_button :sex, :male, {} %><%= f.label :male %>
+  <%= f.radio_button :sex, :female, {} %><%= f.label :female %>
+  <br />
+  <%= f.label :age %>
+  <%= f.text_field :age %>
+  <br />
+  <%= f.label :birth %>
+  <%= f.select :birth, User.births.keys.to_a, {} %>
+  <br />
+  <%= f.label :status %>
+  <%= f.select :status, User.statuses.keys.to_a, {} %>
+  <br />
+  <%= f.submit %>
+<% end %>
