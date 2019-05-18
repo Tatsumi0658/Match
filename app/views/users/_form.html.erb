@@ -20,5 +20,14 @@
   <%= f.label :status %>
   <%= f.select :status, User.statuses.to_a.map { |k, v| [t("enums.user.status.#{k}"), k]} %>
   <br />
+  <%= f.label :email %>
+  <%= f.text_field :email %>
+  <br />
+  <%= f.label :password %>
+  <%= f.password_field :password %>
+  <br />
+  <%= f.label :password_confirmation %>
+  <%= f.password_field :password_confirmation %>
+  <br />
   <%= f.submit %>
 <% end %>
